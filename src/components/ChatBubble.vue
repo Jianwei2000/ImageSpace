@@ -10,7 +10,12 @@
     </div>
     <div>
       <p class="text-sm font-medium text-gray-200">{{ message.type === 'user' ? '魔法詠唱' : 'AI' }}</p>
-      <p class="text-sm text-gray-500">{{ message.content }}</p>
+      <div v-if="message.isImage">
+        <img :src="message.content" alt="AI生成圖" class="w-full max-w-sm rounded-xl mt-3 cursor-pointer transition-transform duration-300 hover:scale-105">
+      </div>
+      <div v-else>
+          <p class="text-sm text-gray-500">{{ message.content }}</p>
+      </div>
     </div>
   </div>
 </template>

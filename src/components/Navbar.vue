@@ -3,10 +3,10 @@
         <div class="flex justify-between items-center mx-4" >
             <h1>ImageSpace</h1>
             <ul class="flex space-x-4">
-                <li class="transition-transform duration-300 hover:scale-110 cursor-pointer">
+                <li v-if="route.path==='/'" class="transition-transform duration-300 hover:scale-110 cursor-pointer" >
                     <router-link to="/fav"><HeartIcon class="w-6 h-6 inline-block mr-2"/>收藏</router-link>
                 </li>
-                <li class="transition-transform duration-300 hover:scale-110 cursor-pointer">
+                <li v-else class="transition-transform duration-300 hover:scale-110 cursor-pointer">
                     <router-link to="/"><BackspaceIcon class="w-6 h-6 inline-block mr-2"/>返回</router-link>
                 </li>
             </ul>
@@ -15,7 +15,11 @@
 </template>
 
 <script setup>
+import {useRoute} from "vue-router";
 import{HeartIcon} from "@heroicons/vue/24/solid";
 import{BackspaceIcon} from "@heroicons/vue/24/outline";
+
+const route = useRoute();
+
 
 </script>
